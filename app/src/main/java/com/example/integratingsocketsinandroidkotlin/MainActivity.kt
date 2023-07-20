@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             ).show()
             false
         }*/
-////////////////////////////////////
+/////////////////////////////////////
 
         if (ActivityCompat.checkSelfPermission(
                 this, android.Manifest.permission.READ_EXTERNAL_STORAGE
