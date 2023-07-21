@@ -21,35 +21,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        ///////////////////////////
-/*        videoView = findViewById(R.id.videoPlayInApp)
-
-        mediaControls = MediaController(this)
-        mediaControls!!.setAnchorView(this.videoView)
-
-        videoView!!.setMediaController(mediaControls)
-        videoView!!.setVideoURI(
-            Uri.parse(
-                "android.resource://" + packageName + "/" + R.raw.screenrecorder
-            )
-        )
-        videoView!!.requestFocus()
-        videoView!!.start()
-        videoView!!.setOnCompletionListener {
-            Toast.makeText(
-                applicationContext, "Video completed", Toast.LENGTH_LONG
-            ).show()
-            true
-        }
-        videoView!!.setOnErrorListener { mp, what, extra ->
-            Toast.makeText(
-                applicationContext,
-                "An Error Occurred " + "While Playing Video !!!",
-                Toast.LENGTH_LONG
-            ).show()
-            false
-        }*/
-/////////////////////////////////////
 
         if (ActivityCompat.checkSelfPermission(
                 this, android.Manifest.permission.READ_EXTERNAL_STORAGE
@@ -64,9 +35,14 @@ class MainActivity : AppCompatActivity() {
         val enterBtn = findViewById<Button>(R.id.enterBtn)
 
         enterBtn.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("name", editText.text.toString())
-            startActivity(intent)
+            if (editText.text.toString() == "") {
+                Toast.makeText(this@MainActivity, "Please Enter the Name", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                val intent = Intent(this, ChatActivity::class.java)
+                intent.putExtra("name", editText.text.toString())
+                startActivity(intent)
+            }
         }
     }
 }
