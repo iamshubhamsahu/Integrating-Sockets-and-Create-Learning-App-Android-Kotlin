@@ -1,4 +1,4 @@
-package com.example.integratingsocketsinandroidkotlin
+package com.example.integratingsocketsinandroidkotlin.view.activity
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -9,12 +9,12 @@ import android.text.TextWatcher
 import android.util.Base64
 import android.view.View
 import android.widget.EditText
-import android.widget.MediaController
 import android.widget.Toast
-import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.integratingsocketsinandroidkotlin.adapter.MessageAdapter
+import com.example.integratingsocketsinandroidkotlin.R
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -110,6 +110,8 @@ class ChatActivity : AppCompatActivity(), TextWatcher {
             }
         }
 
+
+
     }
 
     private fun initializeView() {
@@ -177,7 +179,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher {
 
     private fun sendImage(image: Bitmap) {
         val outputStream = ByteArrayOutputStream()
-        image.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+        image.compress(Bitmap.CompressFormat.JPEG, 50, outputStream)
         val base64String = Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT)
 
         val jsonObject = JSONObject()

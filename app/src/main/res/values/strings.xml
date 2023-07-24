@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Integrating Sockets in Android Kotlin</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_the_video">Name the Video</string>
+    <string name="choose_video">Choose Video...</string>
+    <string name="show_videos">Show Videos...</string>
+    <string name="upload">Upload</string>
 </resources>
