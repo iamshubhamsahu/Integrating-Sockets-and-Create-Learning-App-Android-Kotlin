@@ -20,7 +20,7 @@ public class Member {
     }
 
     public void setVideoUrl(String videoUrl) {
-        VideoUrl = videoUrl;
+        this.VideoUrl = videoUrl;
     }
 
     public String getSearch() {

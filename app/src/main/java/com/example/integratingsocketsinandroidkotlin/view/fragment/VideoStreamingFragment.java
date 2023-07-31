@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.integratingsocketsinandroidkotlin.R;
 import com.example.integratingsocketsinandroidkotlin.adapter.Member;
+import com.example.integratingsocketsinandroidkotlin.view.activity.ShowVideoActivity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -152,6 +153,11 @@ public class VideoStreamingFragment extends Fragment {
                 MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
                 return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(videoUri));
             }
+        });
+
+        showVideo.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity() , ShowVideoActivity.class);
+            startActivity(intent);
         });
     }
 }
