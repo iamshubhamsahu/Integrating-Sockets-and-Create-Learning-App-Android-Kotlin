@@ -3,6 +3,7 @@ package com.example.integratingsocketsinandroidkotlin.view.activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.MediaController
@@ -14,9 +15,6 @@ import com.example.integratingsocketsinandroidkotlin.R
 import com.example.integratingsocketsinandroidkotlin.view.fragment.VideoStreamingFragment
 
 class MainActivity : AppCompatActivity() {
-    //Video can run in app
-    private lateinit var videoView: VideoView
-    private lateinit var mediaControls: MediaController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         val mFragmentManager = supportFragmentManager
         val mFragmentTransaction = mFragmentManager.beginTransaction()
         val mFragment = VideoStreamingFragment()
+
+        // Adding this line will prevent taking a screenshot in your app
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_SECURE,
+            WindowManager.LayoutParams.FLAG_SECURE
+        )
 
         if (ActivityCompat.checkSelfPermission(
                 this, android.Manifest.permission.READ_EXTERNAL_STORAGE
