@@ -1,59 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/materialCardView"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/videoImg"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="5dp"
+        android:contentDescription="Image"
+        android:src="@mipmap/ic_video_player"
+        app:shapeAppearanceOverlay="@style/curved" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_height="30dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingHorizontal="5dp"
+        android:text="Video Name"
+        android:textColor="@color/black" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_item_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Name"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+    <TextView
+        android:id="@+id/tv_search_name"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingHorizontal="5dp"
+        android:text="Search Url" />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_search_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_item_name"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:text="Search"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_search_url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_search_name"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:text="Search Url"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/playerView_video"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_below="@+id/tv_search_url"
-            android:layout_marginTop="5dp" />
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:text="00:00"
+        android:textColor="@color/black" />
 
 
-    </RelativeLayout>
-
-
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

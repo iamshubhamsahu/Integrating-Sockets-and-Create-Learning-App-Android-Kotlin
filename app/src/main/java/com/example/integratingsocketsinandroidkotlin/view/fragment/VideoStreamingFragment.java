@@ -85,7 +85,6 @@ public class VideoStreamingFragment extends Fragment {
             videoUri = data.getData();
             videoView.setVideoURI(videoUri);
         }
-
     }
 
     private void functionalityAddInFragment() {
@@ -133,7 +132,8 @@ public class VideoStreamingFragment extends Fragment {
                                 databaseReference.child(i).setValue(member);
 
                                 clearField();
-                            } else {
+                            }
+                            else {
                                 Toast.makeText(getContext(), "Failed....", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -142,10 +142,10 @@ public class VideoStreamingFragment extends Fragment {
                             videoView.setVisibility(View.GONE);
                             videoView.setVisibility(View.VISIBLE);
                             videoName.setText("");
-
                         }
                     });
-                } else {
+                }
+                else {
                     Toast.makeText(getContext(), "All Fields are Required", Toast.LENGTH_SHORT).show();
                 }
             }

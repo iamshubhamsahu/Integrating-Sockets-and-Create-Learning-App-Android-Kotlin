@@ -67,4 +67,9 @@ dependencies {
 
     //exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.19.0'
+
+    //for glide
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+
+
 }

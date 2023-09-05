@@ -109,9 +109,6 @@ class ChatActivity : AppCompatActivity(), TextWatcher {
                 }
             }
         }
-
-
-
     }
 
     private fun initializeView() {
@@ -168,10 +165,9 @@ class ChatActivity : AppCompatActivity(), TextWatcher {
             try {
                 val inputStream: InputStream? = contentResolver.openInputStream(data?.data!!)
                 val image: Bitmap = BitmapFactory.decodeStream(inputStream)
-
                 sendImage(image)
-
-            } catch (e: FileNotFoundException) {
+            }
+            catch (e: FileNotFoundException) {
                 e.printStackTrace()
             }
         }
@@ -186,6 +182,7 @@ class ChatActivity : AppCompatActivity(), TextWatcher {
 
         try {
             jsonObject.put("name", name)
+
             jsonObject.put("image", base64String)
 
             webSocket.send(jsonObject.toString())

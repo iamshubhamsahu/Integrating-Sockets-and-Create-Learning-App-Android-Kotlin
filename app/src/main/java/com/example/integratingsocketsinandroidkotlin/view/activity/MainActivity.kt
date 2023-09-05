@@ -52,11 +52,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
         uploadBtn.setOnClickListener {
             val mBundle = Bundle()
             mFragment.arguments = mBundle
             mFragmentTransaction.add(R.id.frameLayout, mFragment).commit()
-
         }
     }
 }
