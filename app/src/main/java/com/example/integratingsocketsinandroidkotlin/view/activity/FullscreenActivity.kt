@@ -1,11 +1,17 @@
 package com.example.integratingsocketsinandroidkotlin.view.activity
 
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.example.integratingsocketsinandroidkotlin.R
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -22,9 +28,16 @@ class FullscreenActivity : AppCompatActivity() {
     lateinit var nextBtn: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fullscreen)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        }
+
+        setTheme(R.style.fullscreenActivityTheme)
         fullscreenPlayerView = findViewById(R.id.fullscreen_player_view)
         videoTitle = findViewById(R.id.videoTitle)
         backBtn = findViewById(R.id.backBtn)
@@ -42,6 +55,11 @@ class FullscreenActivity : AppCompatActivity() {
         fullscreenExoPlayer.playWhenReady = true
         videoTitle.isSelected = true
         videoTitle.text = videoName
+
+        WindowCompat.setDecorFitsSystemWindows(window,false)
+        val controller = WindowInsetsControllerCompat(window, fullscreenPlayerView)
+        controller.hide(WindowInsetsCompat.Type.systemBars())
+        controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 
         backBtn.setOnClickListener {
             finish()
